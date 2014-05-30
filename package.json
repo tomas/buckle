@@ -1,0 +1,15 @@
+{
+  "name": "buckle",
+  "version": "0.0.1",
+  "description": "Pure JS ZIP extractor, that preserves file attributes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "decompress-zip": "git://github.com/tomas/decompress-zip",
+    "async": "~0.9.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

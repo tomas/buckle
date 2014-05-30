@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+var buckle = require('./..');
+
+var callback = function(err, res) {
+  console.log(err || res);
+}
+
+if (process.argv[2])
+  buckle.open(process.argv[2], process.argv[3], callback)
+else
+  console.log('Usage: buckle [package.zip] [destination_path]');

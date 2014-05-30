@@ -12,7 +12,7 @@ buckle.open('/path/to/package.zip', '/destination/path', function(err, result) {
 })
 ```
 
-That's pretty much it.
+That's pretty much it. You can omit the destination path argument, which will unzip the files to the package's current path.
 
 Credits
 -------

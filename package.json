@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Pure JS ZIP extractor, that preserves file attributes.",
   "main": "index.js",
+  "bin": {
+    "buckle": "bin/buckle"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -32,8 +32,14 @@ exports.open = function(file, new_path, cb) {
   var error,
       result,
       zip = new DecompressZip(file);
-  
-  var done = function(err, res) { 
+
+  if (!new_path || typeof new_path == 'function') {
+    var cb = cb || new_path;
+    var file_path = path.dirname(path.resolve(file));
+    var new_path = path.join(file_path, path.basename(file).split('.')[0]);
+  }
+
+  var done = function(err, res) {
     if (err || q.length() == 0)
       return cb && cb(err, res);
 

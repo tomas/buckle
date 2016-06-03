@@ -14,11 +14,11 @@ var skip_files = ['__MACOSX', '.DS_Store', '._.DS_Store'];
 
 var debugging = process.env.DEBUG;
 
-var debug = function(str) {
+function debug(str) {
   if (debugging) console.log(str)
 }
 
-var octal = function (number, digits) {
+function octal(number, digits) {
   var result = '';
   for (var i = 0; i < digits; i++) {
     result = (number & 0x07) + result;
@@ -39,7 +39,7 @@ exports.open = function(file, new_path, cb) {
     var new_path = path.join(file_path, path.basename(file).split('.')[0]);
   }
 
-  var done = function(err, res) {
+  function done(err, res) {
     if (err || q.length() == 0)
       return cb && cb(err, res);
 
@@ -48,7 +48,7 @@ exports.open = function(file, new_path, cb) {
     q.resume();
   }
 
-  var q = queue(function (task, callback) {
+  var q = queue(function(task, callback) {
     var file = path.join(new_path, task.file);
     debug('Chmodding ' + file + ' to ' + task.mode);
     chmod(file, task.mode, function(err) {
